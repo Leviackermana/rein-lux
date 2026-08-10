@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# REIN LUX Reinigung – Website v3
 
-## Getting Started
+Premium One-Page Website für REIN LUX REINIGUNG OG.
 
-First, run the development server:
+## Was in dieser Version geändert wurde
 
-```bash
+- Neues REIN-LUX-Logo aus der gelieferten Datei eingebaut.
+- Galerie vollständig entfernt.
+- Alle Stock- und AI-artigen Fotografien entfernt.
+- Hero, About und CTA funktionieren jetzt rein über Typografie, Logo, Layout und dezente grafische Effekte.
+- Aussagen auf realistische Firmendaten angepasst: 15+ Jahre Berufserfahrung und 30+ betreute Objekte.
+- Leistungen reduziert auf:
+  - Hausbetreuung
+  - Bodenpflege
+  - Sonderreinigung
+  - Winterdienst
+  - Gartenpflege
+  - Solaranlagenreinigung
+- Verkaufstexte stärker auf Hausverwaltungen und Eigentümer ausgerichtet, ohne unbelegte Versprechen oder erfundene Kennzahlen.
+
+## Start in VS Code / CMD
+
+```cmd
+cd C:\Users\Dejan\rein-lux
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Danach im Browser öffnen: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vorhandenen Projektordner ersetzen
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Development-Server mit `Ctrl + C` stoppen.
+2. Inhalt dieses Pakets nach `C:\Users\Dejan\rein-lux` kopieren.
+3. Vorhandene Dateien ersetzen.
+4. `npm install` ausführen.
+5. `npm run dev` ausführen.
 
-## Learn More
+## Kontaktformular aktivieren
 
-To learn more about Next.js, take a look at the following resources:
+Das Formular ist vorbereitet. Für echten E-Mail-Versand wird ein Resend API Key benötigt:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. `.env.example` zu `.env.local` kopieren.
+2. `RESEND_API_KEY` eintragen.
+3. Für Produktion eine verifizierte Absenderdomain in `CONTACT_FROM_EMAIL` verwenden.
+4. Server neu starten.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Vor Livegang
 
-## Deploy on Vercel
+- Impressum und Datenschutzerklärung ergänzen.
+- Domain in `app/layout.tsx` prüfen.
+- Kontaktformular mit echter Absenderdomain testen.
+- Später können ausschließlich echte REIN-LUX-Fotos ergänzt werden, wenn ausreichend gutes Material vorhanden ist.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## v4 izmene
+- Veliki logo iz Hero sekcije je uklonjen.
+- Mali originalni REIN LUX logo ostaje u gornjem levom uglu navigacije.
+- U Hero sekciju je vraćena fotografija ulaza zgrade iz prethodne verzije.
+- Hero tekst je dodatno usmeren na Hausverwaltung i upravljanje objektima.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## V4.4 – compact mobile layout
+
+The desktop layout remains visually aligned with V4.3. On phones the page is intentionally shorter: services use an accordion, only three key reasons and three process steps are shown, the secondary showcase and about photo are hidden, statistics use a compact 2×2 grid, and a fixed call/offer bar remains accessible at the bottom.
