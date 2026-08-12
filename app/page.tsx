@@ -16,7 +16,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "REIN LUX REINIGUNG OG",
-    description: "Hausbetreuung, Bodenpflege, Winterdienst und Gartenpflege in Wien und Umgebung.",
+    description: "Hausbetreuung, Entrümpelung, Winterdienst und Gartenpflege in Wien und Umgebung.",
     telephone: ["+43 676 550 1395", "+43 660 363 9235"],
     email: "office@reinlux.at",
     address: {

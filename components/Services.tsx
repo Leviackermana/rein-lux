@@ -8,7 +8,7 @@ import {
   House,
   Leaf,
   Snowflake,
-  Waves,
+  Truck,
 } from "lucide-react";
 
 const services = [
@@ -18,9 +18,9 @@ const services = [
     text: "Laufende Betreuung von Wohn- und Geschäftsobjekten – inklusive gepflegter Allgemeinflächen, Eingangsbereiche und Stiegenhäuser.",
   },
   {
-    icon: Waves,
-    title: "Bodenpflege",
-    text: "Fachgerechte Reinigung und Pflege verschiedenster Bodenbeläge für ein dauerhaft sauberes und gepflegtes Erscheinungsbild.",
+    icon: Truck,
+    title: "Entrümpelung",
+    text: "Zuverlässige Räumung und Entrümpelung von Wohnungen, Kellern, Dachböden und Nebenräumen – sauber, ordentlich und unkompliziert.",
   },
   {
     icon: Snowflake,

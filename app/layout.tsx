@@ -8,10 +8,10 @@ const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://reinlux.at"),
   title: { default: "REIN LUX Reinigung | Hausbetreuung Wien", template: "%s | REIN LUX Reinigung" },
-  description: "REIN LUX REINIGUNG OG: Hausbetreuung, Bodenpflege, Winterdienst und Gartenpflege in Wien und Umgebung.",
+  description: "REIN LUX REINIGUNG OG: Hausbetreuung, Entrümpelung, Winterdienst und Gartenpflege in Wien und Umgebung.",
   keywords: [
     "Hausbetreuung Wien",
-    "Bodenpflege Wien",
+    "Entrümpelung Wien",
     "Winterdienst Wien",
     "Gartenpflege Wien",
     "REIN LUX Reinigung"
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     description: "Sauberkeit. Qualität. Vertrauen.",
     type: "website",
     locale: "de_AT"
+  },
+  icons: {
+    icon: "/rein-lux-logo.png",
+    shortcut: "/rein-lux-logo.png",
+    apple: "/rein-lux-logo.png"
   },
   robots: { index: true, follow: true }
 };

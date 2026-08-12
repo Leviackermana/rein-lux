@@ -11,7 +11,7 @@ Premium One-Page Website für REIN LUX REINIGUNG OG.
 - Aussagen auf realistische Firmendaten angepasst: 15+ Jahre Berufserfahrung und 30+ betreute Objekte.
 - Leistungen reduziert auf:
   - Hausbetreuung
-  - Bodenpflege
+  - Entrümpelung
   - Winterdienst
   - Gartenpflege
 - Verkaufstexte stärker auf Hausverwaltungen und Eigentümer ausgerichtet, ohne unbelegte Versprechen oder erfundene Kennzahlen.
