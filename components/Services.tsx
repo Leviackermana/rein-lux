@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  ChevronDown,
-  House,
-  Leaf,
-  Snowflake,
-  Truck,
-} from "lucide-react";
+import { ArrowUpRight, ChevronDown, House, Leaf, Snowflake, Truck } from "lucide-react";
 
 const services = [
   {
@@ -32,17 +24,17 @@ const services = [
     title: "Gartenpflege",
     text: "Regelmäßige Pflege von Grünflächen und Außenanlagen für einen ordentlichen und einladenden Gesamteindruck.",
   },
-];
+] as const;
 
 export default function Services() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="leistungen" className="section-pad bg-[#0f0f0f]">
+    <section id="leistungen" aria-labelledby="leistungen-title" className="section-pad bg-[#0f0f0f]">
       <div className="section-shell">
         <div className="mx-auto max-w-3xl text-center">
           <div className="eyebrow">Unsere Leistungen</div>
-          <h2 className="font-display mt-4 text-[2.65rem] font-semibold leading-[.98] sm:text-6xl">
+          <h2 id="leistungen-title" className="font-display mt-4 text-[2.65rem] font-semibold leading-[.98] sm:text-6xl">
             Alles Wichtige für ein <span className="gold-text">gepflegtes Objekt.</span>
           </h2>
           <p className="mt-4 text-sm leading-6 text-white/55 sm:mt-5 sm:text-base">
@@ -50,63 +42,39 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Mobile: compact accordion instead of six tall cards */}
-        <div className="mt-9 divide-y divide-white/8 border-y border-white/8 md:hidden">
+        <div className="services-grid mt-9 grid gap-0 border-y border-white/8 md:mt-14 md:grid-cols-2 md:gap-5 md:border-0">
           {services.map((service, i) => {
             const Icon = service.icon;
             const isOpen = open === i;
+            const contentId = `service-content-${i}`;
             return (
-              <div key={service.title}>
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center gap-3 py-4 text-left"
-                  aria-expanded={isOpen}
-                >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#D4AF37]/25 bg-[#D4AF37]/[.06] text-[#D4AF37]">
-                    <Icon size={20} />
+              <article key={service.title} className="service-card group border-b border-white/8 py-1 last:border-b-0 md:rounded-[1.6rem] md:border md:border-white/8 md:bg-white/[.025] md:p-7 md:transition md:duration-300 md:hover:-translate-y-1 md:hover:border-[#D4AF37]/45 md:hover:bg-[#D4AF37]/[.045]">
+                <div className="flex min-h-14 items-center gap-3 py-3 md:min-h-0 md:items-start md:justify-between md:py-0">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#D4AF37]/25 bg-[#D4AF37]/[.06] text-[#D4AF37] md:h-14 md:w-14 md:rounded-2xl">
+                    <Icon size={22} aria-hidden="true" />
                   </span>
-                  <span className="flex-1 font-display text-xl font-semibold">{service.title}</span>
-                  <ChevronDown size={20} className={`text-white/35 transition-transform ${isOpen ? "rotate-180 text-[#D4AF37]" : ""}`} />
-                </button>
-                <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]"}`}>
-                  <div className="overflow-hidden pl-[3.25rem]">
-                    <p className="pr-2 text-sm leading-6 text-white/50">{service.text}</p>
-                    <a href="#kontakt" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#d9ba52]">
-                      Angebot anfragen <ArrowUpRight size={15} />
+                  <h3 className="flex-1 font-display text-xl font-semibold md:mt-6 md:text-3xl">{service.title}</h3>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="grid min-h-11 min-w-11 place-items-center rounded-full text-white/55 hover:bg-white/5 hover:text-[#D4AF37] md:hidden"
+                    aria-expanded={isOpen}
+                    aria-controls={contentId}
+                    aria-label={`${service.title}: Details ${isOpen ? "ausblenden" : "anzeigen"}`}
+                  >
+                    <ChevronDown size={20} className={`transition-transform ${isOpen ? "rotate-180 text-[#D4AF37]" : ""}`} aria-hidden="true" />
+                  </button>
+                </div>
+
+                <div id={contentId} className={`service-content grid transition-[grid-template-rows] duration-200 md:block ${isOpen ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]"}`}>
+                  <div className="overflow-hidden pl-[3.25rem] md:overflow-visible md:pl-0">
+                    <p className="pr-2 text-sm leading-6 text-white/60 md:mt-3 md:pr-0 md:text-base md:leading-7">{service.text}</p>
+                    <a href="#kontakt" className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#d9ba52] md:mt-5">
+                      Angebot anfragen <ArrowUpRight size={15} aria-hidden="true" />
                     </a>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Tablet / desktop */}
-        <div className="mt-14 hidden gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            return (
-              <motion.article
-                key={service.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.22 }}
-                transition={{ delay: (i % 3) * 0.06 }}
-                className="group rounded-[1.6rem] border border-white/8 bg-white/[.025] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/45 hover:bg-[#D4AF37]/[.045] hover:shadow-[0_25px_80px_rgba(212,175,55,.08)]"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[#D4AF37]/30 bg-[#D4AF37]/8 text-[#D4AF37]">
-                    <Icon size={26} />
-                  </div>
-                  <ArrowUpRight className="text-white/20 transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#D4AF37]" />
-                </div>
-                <h3 className="mt-8 font-display text-3xl font-semibold">{service.title}</h3>
-                <p className="mt-3 leading-7 text-white/50">{service.text}</p>
-                <a href="#kontakt" className="mt-7 inline-flex text-sm font-semibold text-[#d9ba52]">
-                  Anfrage senden
-                </a>
-              </motion.article>
+              </article>
             );
           })}
         </div>

@@ -29,7 +29,7 @@ export default function About() {
               <div key={String(top) + String(bottom)} className="rounded-xl border border-white/8 bg-white/[.025] p-3.5 sm:rounded-2xl sm:p-5">
                 <Icon className="text-[#D4AF37]" size={20} />
                 <div className="mt-3 text-sm font-semibold sm:mt-5 sm:text-base">{String(top)}</div>
-                <div className="mt-0.5 text-xs text-white/40 sm:mt-1 sm:text-sm">{String(bottom)}</div>
+                <div className="mt-0.5 text-xs text-white/55 sm:mt-1 sm:text-sm">{String(bottom)}</div>
               </div>
             ))}
           </div>
@@ -50,7 +50,7 @@ export default function About() {
           </div>
           <div className="relative -mt-8 ml-8 max-w-[88%] rounded-2xl border border-[#D4AF37]/20 bg-[#0b0b0b]/95 p-5 shadow-xl backdrop-blur">
             <p className="font-display text-2xl leading-tight text-[#e7cb68]">„Sauberkeit ist unsere Leidenschaft.“</p>
-            <p className="mt-2 text-sm leading-6 text-white/45">Persönliche Verantwortung statt anonymer Abwicklung.</p>
+            <p className="mt-2 text-sm leading-6 text-white/55">Persönliche Verantwortung statt anonymer Abwicklung.</p>
           </div>
         </div>
       </div>
