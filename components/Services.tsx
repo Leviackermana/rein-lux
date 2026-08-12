@@ -8,8 +8,6 @@ import {
   House,
   Leaf,
   Snowflake,
-  Sparkles,
-  Sun,
   Waves,
 } from "lucide-react";
 
@@ -25,11 +23,6 @@ const services = [
     text: "Fachgerechte Reinigung und Pflege verschiedenster Bodenbeläge für ein dauerhaft sauberes und gepflegtes Erscheinungsbild.",
   },
   {
-    icon: Sparkles,
-    title: "Sonderreinigung",
-    text: "Individuelle Reinigungslösungen für besondere Anforderungen, starke Verschmutzungen oder einmalige Einsätze.",
-  },
-  {
     icon: Snowflake,
     title: "Winterdienst",
     text: "Verlässliche Betreuung bei Schnee und Eis, damit Zugänge und Außenbereiche sicher und begehbar bleiben.",
@@ -38,11 +31,6 @@ const services = [
     icon: Leaf,
     title: "Gartenpflege",
     text: "Regelmäßige Pflege von Grünflächen und Außenanlagen für einen ordentlichen und einladenden Gesamteindruck.",
-  },
-  {
-    icon: Sun,
-    title: "Solaranlagenreinigung",
-    text: "Schonende und gründliche Reinigung von Photovoltaik- und Solaranlagen zur Entfernung von Staub, Schmutz und Ablagerungen.",
   },
 ];
 

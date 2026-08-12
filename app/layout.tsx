@@ -8,14 +8,12 @@ const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://reinlux.at"),
   title: { default: "REIN LUX Reinigung | Hausbetreuung Wien", template: "%s | REIN LUX Reinigung" },
-  description: "REIN LUX REINIGUNG OG: Hausbetreuung, Bodenpflege, Sonderreinigung, Winterdienst, Gartenpflege und Solaranlagenreinigung in Wien und Umgebung.",
+  description: "REIN LUX REINIGUNG OG: Hausbetreuung, Bodenpflege, Winterdienst und Gartenpflege in Wien und Umgebung.",
   keywords: [
     "Hausbetreuung Wien",
     "Bodenpflege Wien",
-    "Sonderreinigung Wien",
     "Winterdienst Wien",
     "Gartenpflege Wien",
-    "Solaranlagenreinigung Wien",
     "REIN LUX Reinigung"
   ],
   openGraph: {

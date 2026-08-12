@@ -12,10 +12,8 @@ Premium One-Page Website für REIN LUX REINIGUNG OG.
 - Leistungen reduziert auf:
   - Hausbetreuung
   - Bodenpflege
-  - Sonderreinigung
   - Winterdienst
   - Gartenpflege
-  - Solaranlagenreinigung
 - Verkaufstexte stärker auf Hausverwaltungen und Eigentümer ausgerichtet, ohne unbelegte Versprechen oder erfundene Kennzahlen.
 
 ## Start in VS Code / CMD
