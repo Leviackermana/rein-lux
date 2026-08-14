@@ -22,7 +22,7 @@ const services = [
   {
     icon: Leaf,
     title: "Gartenpflege",
-    text: "Regelmäßige Pflege von Grünflächen und Außenanlagen für einen ordentlichen und einladenden Gesamteindruck.",
+    text: "Regelmäßige Pflege von Grünflächen und Gartenpflege für einen ordentlichen und einladenden Gesamteindruck.",
   },
 ] as const;
 
