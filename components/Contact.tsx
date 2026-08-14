@@ -83,8 +83,8 @@ export default function Contact() {
       <div className="section-shell grid gap-5 sm:gap-8 lg:grid-cols-[.85fr_1.15fr]">
         <div className="rounded-[1.5rem] border border-white/8 bg-black/35 p-5 backdrop-blur-sm sm:rounded-[2rem] sm:p-9">
           <div className="eyebrow">Kontakt</div>
-          <h2 id="kontakt-title" className="font-display mt-3 text-[2.6rem] font-semibold leading-[.95] sm:mt-4 sm:text-5xl">Ihr Objekt.<br /><span className="gold-text">Unser Angebot.</span></h2>
-          <p className="mt-4 max-w-md text-sm leading-6 text-white/60 sm:mt-6 sm:text-base sm:leading-7">Schreiben Sie uns kurz, welche Leistung Sie benötigen. Wir melden uns für eine kostenlose Besichtigung und ein unverbindliches Angebot.</p>
+          <h2 id="kontakt-title" className="font-display mt-3 text-[2.6rem] font-semibold leading-[.95] sm:mt-4 sm:text-5xl">Ihr Problemobjekt.<br /><span className="gold-text">Unser Gespräch.</span></h2>
+          <p className="mt-4 max-w-md text-sm leading-6 text-white/60 sm:mt-6 sm:text-base sm:leading-7">Beschreiben Sie uns kurz die Liegenschaft und wo heute überdurchschnittlich viel Aufwand entsteht. Wir melden uns für ein unverbindliches Erstgespräch.</p>
           <div className="mt-5 grid grid-cols-1 gap-2.5 min-[420px]:grid-cols-2 sm:mt-9 sm:block sm:space-y-5">
             {contacts.map(([Icon, label, value, href]) => {
               const I = Icon as typeof Phone;
@@ -101,7 +101,7 @@ export default function Contact() {
         </div>
 
         <div className="rounded-[1.5rem] border border-[#D4AF37]/20 bg-[#101010]/92 p-5 shadow-[0_30px_100px_rgba(0,0,0,.35)] sm:rounded-[2rem] sm:p-9">
-          <div className="flex items-center justify-between gap-6"><div><div className="eyebrow">Kostenlose Anfrage</div><h3 className="font-display mt-2 text-3xl font-semibold sm:mt-3 sm:text-4xl">Angebot anfordern</h3></div><div className="hidden h-14 w-14 place-items-center rounded-full bg-[#D4AF37] text-black sm:grid" aria-hidden="true"><Send size={22} /></div></div>
+          <div className="flex items-center justify-between gap-6"><div><div className="eyebrow">Für Hausverwaltungen</div><h3 className="font-display mt-2 text-3xl font-semibold sm:mt-3 sm:text-4xl">Problemobjekt besprechen</h3></div><div className="hidden h-14 w-14 place-items-center rounded-full bg-[#D4AF37] text-black sm:grid" aria-hidden="true"><Send size={22} /></div></div>
           <form onSubmit={submit} onFocusCapture={markFormStarted} noValidate className="mt-6 grid gap-3.5 sm:mt-8 sm:grid-cols-2 sm:gap-4">
             <div>
               <label htmlFor="name" className="text-sm text-white/65">Name</label>
@@ -120,7 +120,7 @@ export default function Contact() {
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="message" className="text-sm text-white/65">Nachricht</label>
-              <textarea id="message" name="message" required minLength={10} maxLength={3000} placeholder="Welche Leistung benötigen Sie?" className="mt-2" aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : undefined} />
+              <textarea id="message" name="message" required minLength={10} maxLength={3000} placeholder="Welche Liegenschaft verursacht aktuell überdurchschnittlich viel Aufwand?" className="mt-2" aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "message-error" : undefined} />
               {errors.message && <p id="message-error" className="field-error">{errors.message}</p>}
             </div>
 
@@ -139,7 +139,7 @@ export default function Contact() {
 
             <div className="sm:col-span-2 pt-2">
               <button type="submit" disabled={state === "sending"} aria-busy={state === "sending"} className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-[#D4AF37] px-7 py-4 font-semibold text-black transition hover:bg-[#e6c95f] disabled:cursor-not-allowed disabled:opacity-60">
-                {state === "sending" ? "Wird gesendet…" : "Kostenloses Angebot anfordern"}<Send size={18} aria-hidden="true" />
+                {state === "sending" ? "Wird gesendet…" : "Kostenloses Problemobjekt besprechen"}<Send size={18} aria-hidden="true" />
               </button>
               <div aria-live="polite" aria-atomic="true">
                 {statusMessage && <p className={`mt-4 text-sm ${state === "success" ? "text-emerald-300" : "text-red-300"}`}>{statusMessage}</p>}
