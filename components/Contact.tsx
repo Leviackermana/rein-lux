@@ -92,7 +92,7 @@ export default function Contact() {
               return (
                 <a key={String(label)} href={String(href)} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="group flex min-w-0 items-center gap-2.5 rounded-xl border border-white/7 bg-white/[.025] p-3 transition hover:border-[#D4AF37]/35 sm:gap-4 sm:rounded-2xl sm:p-4">
                   <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#D4AF37]/30 text-[#D4AF37] sm:h-11 sm:w-11"><I size={19} aria-hidden="true" /></div>
-                  <div className="min-w-0"><div className="hidden text-xs uppercase tracking-[.15em] text-white/55 sm:block">{String(label)}</div><div className="break-words text-xs text-white/80 sm:mt-1 sm:text-base">{String(value)}</div></div>
+                  <div className="min-w-0"><div className="text-[10px] uppercase tracking-[.12em] text-white/55 sm:text-xs sm:tracking-[.15em]">{String(label)}</div><div className="mt-0.5 break-words text-xs text-white/80 sm:mt-1 sm:text-base">{String(value)}</div></div>
                 </a>
               );
             })}

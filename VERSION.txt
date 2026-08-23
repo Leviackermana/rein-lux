@@ -1,5 +1,1 @@
-REIN LUX v4.9.2
-- Gebäudereinigung aus der Leistungskategorie entfernt
-- Entrümpelung als reguläre Leistung aufgenommen
-- Sonderleistung-Darstellung für Entrümpelung entfernt
-- Structured data und Hausverwaltungen-Metadata angepasst
+4.9.4
