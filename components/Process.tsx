@@ -2,7 +2,7 @@ const steps = [
   ["01", "Besichtigung", "Wir besichtigen Ihr Objekt und klären Anforderungen."],
   ["02", "Angebot", "Sie erhalten ein klares, unverbindliches Angebot."],
   ["03", "Ausführung", "Unser Team arbeitet nach vereinbartem Leistungsumfang."],
-  ["04", "Qualitätskontrolle", "Die Ausführung wird geprüft und dokumentiert."],
+  ["04", "Qualitätskontrolle", "Die Ausführung wird geprüft. Auffälligkeiten und notwendige Nachbesserungen werden intern nachverfolgt."],
   ["05", "Zufriedener Kunde", "Sie erhalten verlässliche Betreuung im Alltag."],
 ] as const;
 
