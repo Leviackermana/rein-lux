@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import AnalyticsConsent from "../components/AnalyticsConsent";
+import CookieBanner from "../components/CookieBanner";
 import "./globals.css";
 
 const siteUrl = "https://www.reinlux.at";
@@ -69,7 +71,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de-AT" className={`${display.variable} ${sans.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AnalyticsConsent />
+        <CookieBanner />
+      </body>
     </html>
   );
 }
