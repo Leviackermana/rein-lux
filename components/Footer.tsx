@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
       <div className="section-shell mt-9 flex flex-col justify-between gap-3 border-t border-white/6 pt-6 text-xs text-white/55 sm:flex-row">
         <span>© {new Date().getFullYear()} REIN LUX REINIGUNG OG. Alle Rechte vorbehalten.</span>
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2"><CookieSettingsLink /><span>Hlawkagasse 10/4/43 · 1100 Wien</span></div>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2"><a href="/impressum" className="hover:text-[#D4AF37]">Impressum</a><a href="/datenschutz" className="hover:text-[#D4AF37]">Datenschutzerklärung</a><CookieSettingsLink /><span>Hlawkagasse 10/4/43 · 1100 Wien</span></div>
       </div>
     </footer>
   );
