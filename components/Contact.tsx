@@ -65,13 +65,19 @@ export default function Contact() {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
-        if (data?.fieldErrors) setErrors(data.fieldErrors);
+        if (data?.fieldErrors) {
+          setErrors(data.fieldErrors);
+          const firstKey = Object.keys(data.fieldErrors)[0];
+          const firstInvalid = firstKey ? formElement.elements.namedItem(firstKey) : null;
+          if (firstInvalid instanceof HTMLElement) firstInvalid.focus();
+        }
         throw new Error("Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.");
       }
       setState("success");
       setStatusMessage("Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.");
       setErrors({});
       formElement.reset();
+      startedAtRef.current = null;
     } catch (error) {
       setState("error");
       setStatusMessage(error instanceof Error ? error.message : "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.");
