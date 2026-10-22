@@ -21,7 +21,7 @@ Initial camera centerline: (0, 6.5, 32), looking to (0,5,0). Ground camera route
 Planned scale and dimensions are an **engineering design**, not dimensions measured from the supplied reference illustration.
 
 ### Structural layout
-- Public front courtyard Z=+5..+17, central approach X=-1.5..+1.5.
+- Public front courtyard Z=+5..+17, central approach X=-1.5..+1.5. A dedicated exterior front connector continues across X=+12..+24 at Z=+13..+17, passing **in front of** the ramp head with pedestrian clearance and a safeguarded ramp crossing/segregated walkway; verify elevations and pedestrian/vehicle conflict before meshing.
 - Double entrance clear portal centered X=0 at Z=+5.1: **2.4 m clear width, 2.8 m clear height**. Wall MUST be split around the actual opening; glass doors have animated swinging/sliding collision proxies. The leaves must retract fully before a camera enters.
 - Lobby X=-2.5..+2.5, Z=-0.5..+5; connected front-to-back to circulation axis.
 - Stair hall X=-2.5..+2.5, Z=-5.5..-0.5. Real tread+riser landings and railings; avoid overlap with lobby and camera clearance.
@@ -29,8 +29,10 @@ Planned scale and dimensions are an **engineering design**, not dimensions measu
 - Basement parking right: dedicated ramp X=+13..+18, Z=+16..-1. **Not beneath or intersecting above-ground east wing**. At Z=+16 elevation Y=0; at Z=-1 elevation Y=-3.1, approximate longitudinal grade 18.2% (requires local regulatory/accessibility review). The top end is outside the building footprint.
 - Garage chamber at basement elevation Y=-3.1: X=+12..+21, Z=-9..-1. Ramp connects at X=13..18, Z=-1.
 - Storage / clearance room X=+4..+12, Z=-9..-3, basement Y=-3.1, connected to garage at X=+12 via **openable internal 1.8 m clear door**. Substructure slab and retaining walls must have modeled openings.
-- Rear right passage: X=+22..+26 (minimum 2.2 m camera-clear corridor), Z=+12..-19; no overlap with garage.
+- Rear right passage: X=+22..+26 (minimum 2.2 m camera-clear corridor), Z=+12..-19; connected to forecourt only via the explicit front connector; no overlap with garage. Rear courtyard access needs an explicit turn at Z=-19.
 - Winter rear courtyard X=-12..+22, Z=-25..-10, with continuous approach from right side passage. Seasonal snow is a layer/instanced effect on the same scene meshes, never a scene replacement.
+
+**Important unresolved geometry:** adjacency edges are conceptual, not proof that zone bounding boxes touch. The front connector, ramp pedestrian crossing and changes of level require explicit walkable surfaces and intersection-free test paths in Phase 2. The storage/garage opening is at X=+12 and must be cut into the basement structure.
 
 ### Shared clearance constraints
 Camera collision capsule target radius 0.3 m, height 1.65 m, swept along **every continuous trajectory**; keep 0.15 m additional margin wherever practicable.
