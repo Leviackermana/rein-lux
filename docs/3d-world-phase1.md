@@ -21,7 +21,7 @@ Initial camera centerline: (0, 6.5, 32), looking to (0,5,0). Ground camera route
 Planned scale and dimensions are an **engineering design**, not dimensions measured from the supplied reference illustration.
 
 ### Structural layout
-- Public front courtyard Z=+5..+17, central approach X=-1.5..+1.5. A dedicated exterior front connector continues across X=+12..+24 at Z=+13..+17, passing **in front of** the ramp head with pedestrian clearance and a safeguarded ramp crossing/segregated walkway; verify elevations and pedestrian/vehicle conflict before meshing.
+- Public front courtyard Z=+5..+17, central approach X=-1.5..+1.5. A dedicated exterior front connector continues across X=+10..+26 at Z=+16..+19, passing **in front of** the ramp head with pedestrian clearance and a safeguarded ramp crossing/segregated walkway; verify elevations and pedestrian/vehicle conflict before meshing.
 - Double entrance clear portal centered X=0 at Z=+5.1: **2.4 m clear width, 2.8 m clear height**. Wall MUST be split around the actual opening; glass doors have animated swinging/sliding collision proxies. The leaves must retract fully before a camera enters.
 - Lobby X=-2.5..+2.5, Z=-0.5..+5; connected front-to-back to circulation axis.
 - Stair hall X=-2.5..+2.5, Z=-5.5..-0.5. Real tread+riser landings and railings; avoid overlap with lobby and camera clearance.
@@ -29,7 +29,7 @@ Planned scale and dimensions are an **engineering design**, not dimensions measu
 - Basement parking right: dedicated ramp X=+13..+18, Z=+16..-1. **Not beneath or intersecting above-ground east wing**. At Z=+16 elevation Y=0; at Z=-1 elevation Y=-3.1, approximate longitudinal grade 18.2% (requires local regulatory/accessibility review). The top end is outside the building footprint.
 - Garage chamber at basement elevation Y=-3.1: X=+12..+21, Z=-9..-1. Ramp connects at X=13..18, Z=-1.
 - Storage / clearance room X=+4..+12, Z=-9..-3, basement Y=-3.1, connected to garage at X=+12 via **openable internal 1.8 m clear door**. Substructure slab and retaining walls must have modeled openings.
-- Rear right passage: X=+22..+26 (minimum 2.2 m camera-clear corridor), Z=+12..-19; connected to forecourt only via the explicit front connector; no overlap with garage. Rear courtyard access needs an explicit turn at Z=-19.
+- Rear right passage: X=+22..+26 (minimum 2.2 m camera-clear corridor), Z=+19..-19; connected to forecourt only via the explicit front connector; no overlap with garage. Rear courtyard access needs an explicit turn at Z=-19.
 - Winter rear courtyard X=-12..+22, Z=-25..-10, with continuous approach from right side passage. Seasonal snow is a layer/instanced effect on the same scene meshes, never a scene replacement.
 
 **Important unresolved geometry:** adjacency edges are conceptual, not proof that zone bounding boxes touch. The front connector, ramp pedestrian crossing and changes of level require explicit walkable surfaces and intersection-free test paths in Phase 2. The storage/garage opening is at X=+12 and must be cut into the basement structure.
@@ -77,3 +77,29 @@ Never direct-interpolate from a current camera pose through the building when ch
 - [ ] Render quality approval; preserved logo, SEO, contact and mobile loading
 - [ ] Lint/build check
 - [ ] Separate Vercel preview URL confirmed, NOT assumed
+
+
+## Phase 1 implementation follow-up — 2026-10-22
+
+Implemented on `preview/interactive-building`:
+- Explicit garden connector X=-15..-10, Z=13..17 bridges the previous 1 m gap.
+- Front connector X=10..26, Z=16..19 is entirely streetward of the ramp head; extends to the right perimeter passage. Side passage now reaches Z=19. These supersede earlier conceptual connector dimensions.
+- Graph validation now rejects separated adjacent volumes and connections with fewer than two shared dimensions of at least 0.9 m. This is a coarse planning clearance gate, NOT a mesh collision or floor-elevation test.
+- Four Node tests cover service reachability/return, disconnected garden bounds, corner-only contact, and disconnected basement. Run with Node 22.18+ / 24: `node --test tests/experience/layout.test.mjs`.
+- Synchronized package-lock with existing Three/R3F declarations after `npm ci` failed due to missing entries; `npm install --ignore-scripts --no-audit --no-fund` succeeded.
+
+Validation actually performed:
+- Planning tests: 4 passed.
+- `npx tsc --noEmit`: passed.
+- `npm run lint`: failed on existing architecture-page anchor and CookieBanner synchronous effect state update; existing unused target warning in BuildingWorld.
+- `npm run build`: blocked by runtime `ENOENT uv_resident_set_memory`; no successful production build claimed.
+- No browser visual tour, collision sweep, mobile performance measurement or new deployment verification performed in this phase.
+- Blender executable not found on PATH.
+
+Additional scene audit:
+- BuildingWorld has a horizontal ramp block, an uncut 65 m terrain slab through the basement access, and a lobby slab centered at Y=1.7 across the intended camera corridor.
+- Rendered BuildingWorld does not consume canonical zones. Its camera target variable is unused. Neither geometry nor initial framing is validated.
+- The iframe prototype retargets via a direct segment from the current pose to an exterior waypoint; this is not safe reverse traversal.
+- Keep React Three Fiber and Three.js already declared; no extra animation library needed for the planning phase. Future navigation should own position, look target, portal state and cancel/return state together.
+
+Phase 2 gate remains OPEN. Next: derive floors/walls/portals from the canonical layout, cut terrain around the ramp and basement, define a graded ramp surface with transitions and basement headroom, then verify the actual meshes. Do not start four camera tours on the current geometry.
