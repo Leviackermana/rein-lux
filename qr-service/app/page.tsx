@@ -1,9 +1,0 @@
-"use client";
-import {useState} from "react";
-const categories=["Reinigung mangelhaft","Bereich nicht gereinigt","Verbrauchsmaterial fehlt","Schaden melden","Sonstiges"];
-export default function Home(){
- const [category,setCategory]=useState("");const [description,setDescription]=useState("");const [photo,setPhoto]=useState<File|null>(null);
- const [notice,setNotice]=useState("");
- const [objectId,setObjectId]=useState("TEST-001");
- return <main className="shell"><header><div className="brand">REINLUX<span>◆</span></div><p>EXZELLENZ IN REINIGUNG</p></header><section className="panel"><p className="eyebrow">KUNDENSERVICE</p><h1>Problem melden</h1><p className="lead">Ihre Zufriedenheit ist unser Anspruch. Teilen Sie uns Ihr Anliegen mit.</p><form onSubmit={e=>{e.preventDefault();setNotice("Demo-Modus: Ihre Meldung wurde nicht versendet. Die sichere Übermittlung wird noch eingerichtet.");}}><label>Objektkennung<input required value={objectId} onChange={e=>setObjectId(e.target.value)} placeholder="Objektkennung"/></label><label>Art der Meldung<select required value={category} onChange={e=>setCategory(e.target.value)}><option value="">Bitte auswählen</option>{categories.map(c=><option key={c}>{c}</option>)}</select></label><label>Beschreibung<textarea required minLength={10} maxLength={2000} value={description} onChange={e=>setDescription(e.target.value)} placeholder="Beschreiben Sie bitte das Problem..." rows={5}/></label><label>Foto hinzufügen (optional)<input type="file" accept="image/jpeg,image/png,image/webp" onChange={e=>{const f=e.target.files?.[0]||null;if(f&&f.size>5*1024*1024){setNotice("Maximale Dateigröße: 5 MB.");setPhoto(null)}else {setPhoto(f);setNotice("")}}}/></label>{photo&&<small>Ausgewählt: {photo.name}</small>}<button type="submit">Meldung vorbereiten →</button>{notice&&<p role="status" className="notice">{notice}</p>}</form></section><footer>© REINLUX · Kundenservice · Demo</footer></main>
-}
